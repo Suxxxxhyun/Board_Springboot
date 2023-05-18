@@ -1,0 +1,11 @@
+<!--view페이지를 불러올때는 '>'를 추가해야한다.
+layouts폴더 밑에 header를 만들었으므로 아래와 같이 코드를 작성한다.
+footer도 마찬가지로 진행한다.-->
+{{>layouts/header}}
+
+<!-- content -->
+<div class="bg-dark text-white p-5">
+    <h1>{{username}}님, 반갑습니다!</h1>
+</div>
+
+{{>layouts/footer}}

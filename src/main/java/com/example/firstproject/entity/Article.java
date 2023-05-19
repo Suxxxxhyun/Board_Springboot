@@ -1,6 +1,8 @@
 package com.example.firstproject.entity;
 
 import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.ToString;
 
 import javax.persistence.Column;
@@ -11,7 +13,9 @@ import javax.persistence.Id;
 @Entity
 //@Entity는 해당 객체(DTO)를 DB가 인식할 수 있게 해준다!
 @AllArgsConstructor
+@NoArgsConstructor // 디폴트 생성자를 추가하는 어노테이션 !
 @ToString
+@Getter
 public class Article {
 
     @Id // 대푯값을 지정하기 위한 어노테이션! like a 주민등록번호
@@ -22,6 +26,10 @@ public class Article {
     private String title;
     @Column
     private String content;
+
+    /*public Long getId() {
+        return id;
+    }*/
 
     /*public Article(Long id, String title, String content) {
         this.id = id;
@@ -36,5 +44,10 @@ public class Article {
                 ", title='" + title + '\'' +
                 ", content='" + content + '\'' +
                 '}';
+    }*/
+
+    /* 디폴트 생성자.
+    Article(){
+
     }*/
 }

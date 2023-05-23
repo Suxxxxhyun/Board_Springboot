@@ -1,7 +1,8 @@
 {{>layouts/header}}
 
 {{#article}}
-<form class="container" action="" method="post">
+<form class="container" action="/articles/update" method="post">
+    <input name = "id" type ="hidden" value ="{{id}}"/>
     <div class="mb-3">
         <label class="form-label">제목</label>
         <!--value에 article.title, article.content, <a>태그에 article.id가 반복이 되어서 #article, /article을 활용하여 필드만 작성해준다. -->

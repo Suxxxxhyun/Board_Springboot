@@ -7,6 +7,8 @@ import lombok.ToString;
 @AllArgsConstructor //lombok의 생성자
 @ToString //lombok의 toString()
 public class ArticleForm {
+
+    private Long id;
     private String title;
     private String content;
 
@@ -26,6 +28,6 @@ public class ArticleForm {
 
     //ArticleForm이라는 DTO객체를 Entity로 변환해주는 메소드
     public Article toEntity() {
-        return new Article(null, title, content);
+        return new Article(id, title, content);
     }
 }

@@ -1,7 +1,9 @@
 package com.example.firstproject.dto;
 
 import com.example.firstproject.entity.Article;
+import com.fasterxml.jackson.annotation.JsonAutoDetect;
 import lombok.AllArgsConstructor;
+import lombok.Getter;
 import lombok.ToString;
 
 @AllArgsConstructor //lombok의 생성자

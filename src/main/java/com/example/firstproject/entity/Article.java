@@ -25,6 +25,20 @@ public class Article {
     @Column
     private String content;
 
+    //수정할때 title이나 content중 필수 항목이 빠지더라도 수정항목만 추가되며, 기존것은 유지된다.
+    //예) id = 1, content = "ㅇㄹㅇㄹ"라고 수정했다면,
+    //id = 1, title = 가가가가, content = ㅇㄹㅇㄹ 로 수정됨.
+    public void patch(Article article){
+        //title이 있다면
+        if(article.title != null){
+            this.title = article.title;
+        }
+        //content가 있다면
+        if(article.content != null){
+            this.content = article.content;
+        }
+    }
+
     /*public Long getId() {
         return id;
     }*/

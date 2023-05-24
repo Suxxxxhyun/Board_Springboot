@@ -100,30 +100,84 @@ class ArticleServiceTest {
     @Transactional
     void update_성공__존재하는_id와_title과_content만_있는_dto_입력(){
 
+        //예상
+        Long id = 1L;
+        String title = "가가가가";
+        String content = "1212121";
+        ArticleForm dto = new ArticleForm(id, title, content);
+        Article expected = new Article(id, title, content);
+
+        //실제
+        Article article = articleService.update(id ,dto);
+
+        //비교
+        assertEquals(expected.toString(), article.toString());
     }
 
     @Test
     @Transactional
     void update_성공__존재하는_id와_title만_있는_dto_입력(){
 
+        //예상
+        Long id = 1L;
+        String title = "가가가2";
+        String content = "1111";
+        ArticleForm dto = new ArticleForm(id, title, null);
+        Article expected = new Article(id, title, content);
+
+        //실제
+        Article article = articleService.update(id ,dto);
+
+        //비교
+        assertEquals(expected.toString(), article.toString());
     }
 
     @Test
     @Transactional
     void update_실패__존재하지_않는_id의_dto_입력(){
 
+        //예상
+        Long id = 4L;
+        String title = "가가가2";
+        String content = "1111";
+        ArticleForm dto = new ArticleForm(id, title, content);
+        Article expected = null;
+
+        //실제
+        Article article = articleService.update(id ,dto);
+
+        //비교
+        assertEquals(expected, article);
     }
 
     @Test
     @Transactional
-    void delete_성공__존재하지_않는_id의_dto_입력(){
+    void delete_성공__존재하는_id의_dto_입력(){
+        //예상
+        Long id = 1L;
+        String title = "가가가가";
+        String content = "1111";
+        Article expected = new Article(id, title, content);
 
+        //실제
+        Article article = articleService.delete(id);
+
+        //비교
+        assertEquals(expected.toString(), article.toString());
     }
 
     @Test
     @Transactional
     void delete_실패__존재하지_않는_id의_dto_입력(){
+        //예상
+        Long id = 4L;
+        Article expected = null;
 
+        //실제
+        Article article = articleService.delete(id);
+
+        //비교
+        assertEquals(expected, article);
     }
 
 

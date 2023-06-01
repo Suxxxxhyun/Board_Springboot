@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8" ?>
-<!-- 구글링 : "orm native query orm.xml example" -->
+<!-- 구글링 : "orm native query orm.xml example로 검색해서 native query작성법 익히면 됨." -->
 <entity-mappings xmlns="https://jakarta.ee/xml/ns/persistence/orm"
                  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
                  xsi:schemaLocation="https://jakarta.ee/xml/ns/persistence/orm
                                      https://jakarta.ee/xml/ns/persistence/orm/orm_3_0.xsd"
                  version="3.0">
 
-    <!-- Comment Repository의 findByNickname은 아래 <query> </query>안의 쿼리를 수행한다. -->
-    <!-- 그에 따른 반환타입(result-class)은 com.example.firstproject.entity.Comment와 같다. -->
+    <!-- Comment Repository의 findByNickname()은 아래 <query> </query>안의 쿼리를 수행한다. -->
+    <!-- 그에 따른 반환타입(result-class)은 Comment Entity 즉, com.example.firstproject.entity.Comment << 경로와 같다. -->
     <named-native-query
             name="Comment.findByNickname"
             result-class="com.example.firstproject.entity.Comment">

@@ -5,6 +5,7 @@ import com.example.firstproject.entity.Article;
 import com.example.firstproject.entity.Comment;
 import com.example.firstproject.repository.ArticleRepository;
 import com.example.firstproject.repository.CommentRepository;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -14,6 +15,8 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 @Service
+@Slf4j
+//@Slf4j는 log를 위한 어노테이션
 public class CommentService {
 
     @Autowired
@@ -48,6 +51,9 @@ public class CommentService {
     @Transactional
     //해당 메소드를 트랜잭션으로 묶는다.
     public CommentDto create(Long articleId, CommentDto dto) {
+        //log.info("입력값 => {}", articleId);
+        //log.info("입력값 => {}", dto);
+
         // 1. 게시글 조회 및 예외 발생
         Article article = articleRepository.findById(articleId)
                 //orElseThrow() 해당 게시글에 대한 댓글이 없다면 아래와 같은 예외를 발생시킨다.는 의미임.
@@ -62,6 +68,9 @@ public class CommentService {
 
         // 4. DTO로 변경하여 반환
         return CommentDto.createCommentDto(created);
+        //CommentDto createdDto = CommentDto.createCommentDto(created);
+        //log.info("반환값 => {}", createdDto);
+        //return createdDto;
     }
 
     @Transactional

@@ -17,10 +17,13 @@ import org.springframework.stereotype.Component;
 public class DebuggingAspect {
 
     //cut() - 어느 지점에 메소드를 주입할 것이냐를 위한 메소드
-    @Pointcut("execution(* com.example.firstproject.service.CommentService.*(..))")
+    //@Pointcut("execution(* com.example.firstproject.service.CommentService.create(..))")
+    @Pointcut("execution(* com.example.firstproject.api.*.*(..))")
     //@Pointcut - 어느 대상을 타겟으로 해서 부가기능을 주입할것인지 (주입 대상을 지정하는 어노테이션)
     //타겟 - CommentService#create(), create(..)에서 ..은 파라미터가 어느것이든 상관없다의 의미임.
     // '* com'에서 *은 public과 return타입을 지정해주는 곳.
+
+    //타겟 - api패키지의 모든 메소드
     private void cut(){}
 
     @Before("cut()")
